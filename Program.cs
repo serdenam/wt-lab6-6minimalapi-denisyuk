@@ -24,6 +24,7 @@ app.MapGet("/api/info", () =>
         Technology = "ASP.NET Core Minimal API",
         Version = "1.0",
         Author = "Denisyuk"
+        Status = "Published"
     };
 });
 
