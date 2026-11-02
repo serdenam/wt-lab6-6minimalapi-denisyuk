@@ -1,6 +1,6 @@
 using wt_lab6_6minimalapi_denisyuk.Models;
 using wt_lab6_6minimalapi_denisyuk.Data;
-using NSwag.AspNetCore; // <-- Подключаем NSwag
+using NSwag.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,18 +17,15 @@ builder.Services.AddOpenApiDocument(config =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    // Генерируем JSON для OpenAPI
-    app.MapOpenApi();
-    
-    // Включаем графический интерфейс NSwag (аналог Swagger UI)
-    app.UseOpenApi();
-    app.UseSwaggerUi(); // В NSwag этот метод включает UI
-}
+// ==========================================
+// Включаем Swagger UI для ВСЕХ режимов (и для Render)
+// ==========================================
+app.MapOpenApi();
+app.UseOpenApi();
+app.UseSwaggerUi(); 
 
 // ==========================================
-// Ваши эндпоинты (без изменений)
+// Эндпоинты
 // ==========================================
 app.MapGet("/", () => "Minimal API работает!");
 
