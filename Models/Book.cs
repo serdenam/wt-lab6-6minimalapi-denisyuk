@@ -1,5 +1,4 @@
-namespace wt_lab6_6minimalapi_denisyuk.Models;
-
+namespace wt_lab7_7postgres_efcore_denisyuk.Models;
 public class Book
 {
     public int Id { get; set; }
